@@ -54,6 +54,9 @@ public class TestMain {
         testFlagShakerSort(originalArray.clone());
         testShellSort(originalArray.clone());
         testMergeSort(originalArray.clone());
+        testHeapSort(originalArray.clone());
+        testQuickSort(originalArray.clone());
+        testQuickSortForTest(originalArray.clone());
     }
 
     // Сортировка пузырьком
@@ -116,6 +119,32 @@ public class TestMain {
         mergeSort.sort(array);
         System.out.println("Сортировка слиянием - Сравнения: " + mergeSort.getComparisons() +
                 ", Перестановки: " + mergeSort.getSwaps());
+        //System.out.println(Arrays.toString(array));
+    }
+
+    // Сортировка кучами
+    private static void testHeapSort(int[] array) {
+        HeapSort heapSort = new HeapSort();
+        heapSort.sort(array);
+        System.out.println("Сортировка кучами - Сравнения: " + heapSort.getComparisons() +
+                ", Перестановки: " + heapSort.getSwaps());
+        //System.out.println(Arrays.toString(array));
+    }
+
+    // Быстрая сортировка
+    private static void testQuickSort(int[] array) {
+        QuickSort quickSort = new QuickSort();
+        quickSort.sort(array);
+        System.out.println("Быстрая сортировка - Сравнения: " + quickSort.getComparisons() +
+                ", Перестановки: " + quickSort.getSwaps());
+        //System.out.println(Arrays.toString(array));
+    }
+
+    private static void testQuickSortForTest(int[] array) {
+        QuickSortForTest quickSortForTest = new QuickSortForTest();
+        quickSortForTest.sort(array);
+        System.out.println("Быстрая сортировка - Сравнения: " + quickSortForTest.getComparisons() +
+                ", Перестановки: " + quickSortForTest.getSwaps());
         //System.out.println(Arrays.toString(array));
     }
 }
