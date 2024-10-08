@@ -143,7 +143,7 @@ public class TestMain {
     private static void testQuickSortForTest(int[] array) {
         QuickSortForTest quickSortForTest = new QuickSortForTest();
         quickSortForTest.sort(array);
-        System.out.println("Быстрая сортировка - Сравнения: " + quickSortForTest.getComparisons() +
+        System.out.println("Быстрая сортировка (тестовая) - Сравнения: " + quickSortForTest.getComparisons() +
                 ", Перестановки: " + quickSortForTest.getSwaps());
         //System.out.println(Arrays.toString(array));
     }

@@ -7,49 +7,41 @@ public class ShakerSorting {
     public void sort(int[] array) {
         comparisons = 0;
         swaps = 0;
+        boolean flag = true;
+        int left = 0;
+        int right = array.length - 1;
 
-        for (int i = 0; i < array.length / 2; i++) {
-            boolean swapped = false;
+        while (flag) {
+            flag = false;
 
             // Проход слева направо
-            for (int j = i; j < array.length - i - 1; j++) {
+            for (int i = left; i < right; i++) {
                 comparisons++;
-                if (array[j] > array[j + 1]) {
-                    // Поменяйте элементы
-                    int temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
-
-                    swapped = true;
+                if (array[i] > array[i + 1]) {
                     swaps++;
+                    // Обмен значениями
+                    int temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                    flag = true;
                 }
             }
+            right--;
 
             // Проход справа налево
-            for (int j = array.length - i - 1; j > i; j--) {
+            for (int i = right; i > left; i--) {
                 comparisons++;
-                if (array[j] < array[j - 1]) {
-                    // Поменяйте элементы
-                    int temp = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = temp;
-
-                    swapped = true;
+                if (array[i] < array[i - 1]) {
                     swaps++;
+                    // Обмен значениями
+                    int temp = array[i];
+                    array[i] = array[i - 1];
+                    array[i - 1] = temp;
+                    flag = true;
                 }
             }
-
-            // Если не было перестановок в этом проходе, массив отсортирован
-            if (!swapped) {
-                break;
-            }
+            left++;
         }
-    }
-
-    private void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
     }
 
     public int getComparisons() {
